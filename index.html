@@ -1,0 +1,804 @@
+
+
+
+
+
+}
+}
+            <path d="M6 22c0-9 5-15 16-16-1 11-7 16-16 16z" />
+          </svg>
+          COSMODERM E-PORTFOLIO
+        </a>
+        <ul class="nav-links">
+          <li><a href="background.html">Background</a></li>
+          <li><a href="problems.html">Problems</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="benefits.html">Benefits</a></li>
+          <li><a href="conclusiom.html">About Me</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="cover-hero">
+      <div class="wrap">
+        <p class="kicker">
+          Individual Assignment · Creativity &amp; Innovation
+        </p>
+        <h1>
+          Cosmoderm: Creativity &amp; Innovation in the Malaysian Skincare
+          Industry
+        </h1>
+        <p class="dek">
+          A case study exploring how creativity and innovation can improve the
+          way customers discover, understand, and choose Cosmoderm products.
+        </p>
+
+        <div class="student-card">
+          <div class="row">
+            <span class="lbl">Name</span><span class="val">[Your Name]</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Matric No.</span
+            ><span class="val">[Your Matric No.]</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Course</span
+            ><span class="val">[Course Code / Title]</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Lecturer</span
+            ><span class="val">[Lecturer's Name]</span>
+          </div>
+        </div>
+
+        <a href="background.html" class="cta-btn">Begin the Case Study →</a>
+      </div>
+    </header>
+
+    <footer class="site-footer">
+      Cosmoderm e-Portfolio — Individual Assignment (30%) · Creativity &amp;
+      Innovation
+    </footer>
+  </body>
+</html>
+.student-card {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    background: #ffffff;
+    border: 1px solid #dce5e2;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Kotak gambar */
+.student-photo {
+    width: 180px;
+    height: 220px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f5f3;
+    border: 2px dashed #9bb5ad;
+    border-radius: 14px;
+
+    overflow: hidden;
+}
+
+.student-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bahagian maklumat */
+.student-info {
+    flex: 1;
+}
+
+.student-info h2 {
+    margin: 0 0 25px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #173f45;
+}
+
+/* Setiap row */
+.student-row {
+    display: flex;
+    padding: 13px 0;
+    border-bottom: 1px solid #e8eeec;
+}
+
+.student-row:last-child {
+    border-bottom: none;
+}
+
+.student-label {
+    width: 130px;
+    font-weight: 600;
+    color: #52736d;
+}
+
+.student-value {
+    flex: 1;
+    color: #263c3d;
+}
+
+/* Responsive untuk phone */
+@media (max-width: 700px) {
+
+    .student-card {
+        margin: 30px 20px;
+        padding: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .student-photo {
+        width: 150px;
+        height: 180px;
+    }
+
+    .student-row {
+        text-align: left;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .student-label {
+        width: auto;
+        font-size: 14px;
+    }
+}
+.media-slot {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.media-slot img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+/* =========================================================
+   COSMODERM E-PORTFOLIO
+   CLEAN BLACK + CREAM DESIGN
+   ========================================================= */
+
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f4efe4;
+  color: #171717;
+
+  font-family: "Source Serif 4", serif;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.site-nav {
+  width: 100%;
+
+  background: #171717;
+
+  border-bottom: 1px solid #302e2a;
+}
+
+.nav-inner {
+  width: 92%;
+  max-width: 1200px;
+
+  min-height: 75px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #f4efe4;
+
+  text-decoration: none;
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+}
+
+.logo svg {
+  width: 27px;
+  height: 27px;
+}
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+  list-style: none;
+}
+
+.nav-links a {
+  color: #aaa294;
+
+  text-decoration: none;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 10px;
+
+  letter-spacing: .5px;
+
+  transition: .2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #f4efe4;
+}
+
+
+/* =========================
+   GENERAL WRAPPER
+   ========================= */
+
+.wrap {
+  width: 90%;
+  max-width: 1150px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================
+   SOLUTIONS PAGE
+   ========================= */
+
+.solutions-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 55px 0 80px;
+
+  background: #f4efe4;
+
+  color: #171717;
+}
+
+
+/* =========================
+   SOLUTIONS HERO
+   ========================= */
+
+.solutions-hero {
+  width: 90%;
+  max-width: 1150px;
+
+  margin: 0 auto 45px;
+
+  background: #171717;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.solutions-hero-inner {
+  padding: 75px 50px;
+
+  text-align: center;
+}
+
+.solutions-kicker {
+  margin-bottom: 18px;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #aaa294;
+}
+
+.solutions-hero h1 {
+  color: #f4efe4;
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: clamp(55px, 8vw, 95px);
+
+  font-weight: 800;
+
+  line-height: .85;
+
+  letter-spacing: -5px;
+}
+
+.solutions-hero h1 span {
+  display: block;
+
+  color: #aaa294;
+
+  font-family: "Source Serif 4", serif;
+
+  font-weight: 400;
+
+  font-style: italic;
+}
+
+.solutions-hero p {
+  max-width: 650px;
+
+  margin: 30px auto 0;
+
+  color: #c8c1b5;
+
+  font-family: "Source Serif 4", serif;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   SOLUTION CARD
+   ========================= */
+
+.solution-card {
+  width: 90%;
+  max-width: 1150px;
+
+  min-height: 440px;
+
+  margin: 0 auto 30px;
+
+  display: grid;
+
+  grid-template-columns: 50% 50%;
+
+  overflow: hidden;
+
+  background: #f4efe4;
+
+  border: 1px solid #cec6b6;
+
+  border-radius: 10px;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .07);
+
+  transition: transform .25s ease,
+              box-shadow .25s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+}
+
+
+/* =========================
+   ALTERNATING CARDS
+   ========================= */
+
+.solution-card.reverse .solution-image {
+  order: 2;
+}
+
+.solution-card.reverse .solution-content {
+  order: 1;
+}
+
+
+/* =========================
+   IMAGE AREA
+   ========================= */
+
+.solution-image {
+  min-height: 440px;
+
+  padding: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #ddd6c7;
+}
+
+.solution-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 380px;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+}
+
+
+/* =========================
+   IMAGE PLACEHOLDER
+   ========================= */
+
+.image-placeholder {
+  width: 100%;
+
+  height: 380px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background: #eee8dc;
+
+  border: 2px dashed #817a6e;
+
+  border-radius: 14px;
+}
+
+.image-placeholder span {
+  width: 55px;
+
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  background: #171717;
+
+  color: #f4efe4;
+
+  border-radius: 50%;
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: 28px;
+}
+
+.image-placeholder strong {
+  color: #454139;
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: 15px;
+}
+
+.image-placeholder small {
+  margin-top: 8px;
+
+  color: #777064;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 9px;
+}
+
+
+/* =========================
+   SOLUTION CONTENT
+   ========================= */
+
+.solution-content {
+  padding: 55px 50px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  background: #f4efe4;
+}
+
+.solution-number {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #777064;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.solution-content h2 {
+  margin-bottom: 22px;
+
+  color: #171717;
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  font-size: clamp(32px, 4vw, 48px);
+
+  font-weight: 700;
+
+  line-height: .98;
+
+  letter-spacing: -2px;
+}
+
+.solution-content > p {
+  max-width: 510px;
+
+  color: #575148;
+
+  font-family: "Source Serif 4", serif;
+
+  font-size: 16px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================
+   WHY IT HELPS
+   ========================= */
+
+.solution-benefit {
+  margin-top: 28px;
+
+  padding: 18px 20px;
+
+  background: #e6dfd1;
+
+  border-left: 4px solid #171717;
+}
+
+.solution-benefit strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #171717;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 1.5px;
+}
+
+.solution-benefit span {
+  display: block;
+
+  color: #625c52;
+
+  font-family: "Source Serif 4", serif;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   PAGE NAVIGATION
+   ========================= */
+
+.solutions-nav {
+  width: 90%;
+  max-width: 1150px;
+
+  margin: 45px auto 0;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.solutions-nav a {
+  display: inline-block;
+
+  padding: 14px 22px;
+
+  background: #171717;
+
+  color: #f4efe4;
+
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 11px;
+
+  transition: .2s ease;
+}
+
+.solutions-nav a:hover {
+  background: #38352f;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+  padding: 30px 20px;
+
+  background: #171717;
+
+  color: #aaa294;
+
+  text-align: center;
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 10px;
+
+  letter-spacing: .5px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 800px) {
+
+  .nav-inner {
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 18px 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 14px;
+  }
+
+  .solutions-page {
+    padding-top: 30px;
+  }
+
+  .solutions-hero {
+    width: 92%;
+  }
+
+  .solutions-hero-inner {
+    padding: 55px 25px;
+  }
+
+  .solutions-hero h1 {
+    font-size: 58px;
+
+    letter-spacing: -3px;
+  }
+
+  .solutions-hero p {
+    font-size: 15px;
+  }
+
+  .solution-card,
+  .solution-card.reverse {
+    width: 92%;
+
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .solution-card.reverse .solution-image,
+  .solution-card.reverse .solution-content {
+    order: unset;
+  }
+
+  .solution-image {
+    min-height: 300px;
+
+    padding: 20px;
+  }
+
+  .solution-image img {
+    height: 260px;
+  }
+
+  .image-placeholder {
+    height: 260px;
+  }
+
+  .solution-content {
+    padding: 40px 28px;
+  }
+
+  .solution-content h2 {
+    font-size: 36px;
+  }
+
+  .solutions-nav {
+    width: 92%;
+
+    flex-direction: column;
+  }
+
+  .solutions-nav a {
+    text-align: center;
+  }
+
+}

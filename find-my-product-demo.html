@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmoderm — Skincare for Malaysia's Climate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg: #FBFAF4;
+    --surface: #E8F0E9;
+    --surface-2: #F2F6F1;
+    --ink: #16302A;
+    --ink-soft: #4A6059;
+    --leaf: #2C5F4C;
+    --leaf-dark: #1B4536;
+    --gold: #D99A3D;
+    --coral: #E8664F;
+    --line: rgba(22,48,42,0.14);
+    --shadow: 0 20px 40px -24px rgba(22,48,42,0.35);
+    --radius: 18px;
+    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  button { font-family: inherit; cursor: pointer; background:none; border:none; }
+  :focus-visible { outline: 2.5px solid var(--gold); outline-offset: 3px; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,250,244,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 32px; max-width: 1180px; margin:0 auto;
+  }
+  .logo {
+    display:flex; align-items:center; gap:10px;
+    font-family: var(--font-display); font-weight:800; font-size: 1.1rem;
+    letter-spacing: 0.01em; color: var(--leaf-dark); text-decoration:none;
+  }
+  .logo svg { width:20px; height:20px; }
+  .nav-links {
+    display:flex; gap: 28px; list-style:none;
+    font-family: var(--font-mono); font-size: 0.76rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .nav-links a {
+    text-decoration:none; color: var(--ink-soft);
+    border-bottom: 1px solid transparent; padding-bottom: 3px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-links a:hover { color: var(--leaf-dark); border-color: var(--gold); }
+  @media (max-width: 720px) { .nav-links { display:none; } }
+
+  /* HERO */
+  .hero { padding: 84px 0 60px; overflow:hidden; }
+  .hero-inner { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items:center; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--leaf); display:flex; align-items:center; gap:10px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before { content:''; width: 22px; height:1px; background: var(--gold); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(2.2rem, 4.6vw, 3.5rem); line-height: 1.08;
+    letter-spacing: -0.01em; color: var(--ink); margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--leaf); }
+  .hero p.lede { font-size: 1.06rem; color: var(--ink-soft); max-width: 46ch; margin-bottom: 32px; }
+  .concern-label {
+    font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 12px;
+  }
+  .pills { display:flex; flex-wrap:wrap; gap:10px; }
+  .pill {
+    font-family: var(--font-body); font-size: 0.92rem; padding: 9px 17px;
+    border-radius: 999px; border: 1px solid var(--line); background: var(--bg);
+    color: var(--ink); transition: all 0.2s ease;
+  }
+  .pill:hover { border-color: var(--leaf); }
+  .pill.active { background: var(--leaf-dark); border-color: var(--leaf-dark); color: var(--bg); }
+
+  .hero-visual { position: relative; height: 360px; }
+  .hero-visual::before {
+    content:''; position:absolute; inset: -30px;
+    background: radial-gradient(circle at 30% 20%, rgba(217,154,61,0.20), transparent 55%),
+                radial-gradient(circle at 75% 70%, rgba(44,95,76,0.16), transparent 50%);
+  }
+  .big-bottle { position:absolute; filter: drop-shadow(var(--shadow)); }
+  .big-bottle.b1 { width:140px; left:8%; top:14%; transform:rotate(-6deg); }
+  .big-bottle.b2 { width:180px; left:36%; top:0; transform:rotate(4deg); z-index:2; }
+  .big-bottle.b3 { width:120px; left:64%; top:26%; transform:rotate(-3deg); }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { height: 240px; margin-top: 10px; }
+  }
+
+  /* TRUST */
+  .trust { background: var(--surface); padding: 44px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .trust-grid { display:grid; grid-template-columns: repeat(4,1fr); gap: 28px; }
+  .trust-item { display:flex; gap:14px; align-items:flex-start; }
+  .trust-item svg { width:25px; height:25px; flex-shrink:0; color: var(--leaf); margin-top:2px; }
+  .trust-item h4 { font-family: var(--font-display); font-size:0.96rem; font-weight:700; margin-bottom:4px; }
+  .trust-item p { font-size:0.84rem; color: var(--ink-soft); line-height:1.45; }
+  @media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2,1fr); } }
+
+  /* AWARDS */
+  .awards { padding: 62px 0; }
+  .section-head { margin-bottom: 30px; max-width: 62ch; }
+  .section-head h2 { font-family: var(--font-display); font-size: clamp(1.5rem,2.6vw,2.1rem); font-weight:800; }
+  .section-head p { color: var(--ink-soft); margin-top:8px; }
+  .award-row { display:grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+  .award-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .award-card .ribbon {
+    font-family: var(--font-mono); font-size: 0.68rem; text-transform:uppercase;
+    letter-spacing:0.06em; color: var(--gold); margin-bottom: 12px;
+  }
+  .award-card h4 { font-family: var(--font-display); font-size:1rem; font-weight:700; margin-bottom:4px; line-height:1.3; }
+  .award-card p { font-size:0.84rem; color:var(--ink-soft); }
+  @media (max-width: 900px) { .award-row { grid-template-columns: repeat(2,1fr);} }
+  @media (max-width: 560px) { .award-row { grid-template-columns: 1fr; } }
+
+  /* PRODUCTS */
+  .products { padding: 66px 0 90px; }
+  .products-top { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; margin-bottom: 30px; }
+  .count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); white-space:nowrap; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 20px; }
+  .card { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px 24px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .card .bottle { width:52px; height: 72px; margin-bottom:16px; }
+  .badge {
+    display:inline-block; font-family: var(--font-mono); font-size:0.64rem; text-transform:uppercase;
+    letter-spacing:0.05em; color: var(--gold); border:1px solid var(--gold); border-radius: 999px;
+    padding: 3px 9px; margin-bottom:10px;
+  }
+  .card h3 { font-family: var(--font-display); font-size:1.02rem; font-weight:700; margin-bottom:4px; line-height:1.25; }
+  .card .coll { font-family: var(--font-mono); font-size:0.7rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:12px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { font-size:0.7rem; background: var(--bg); border:1px solid var(--line); padding:3px 9px; border-radius:999px; color:var(--ink-soft); }
+
+  .bottle .cap { fill: var(--ink); }
+  .bottle .label { fill: var(--bg); opacity:0.9; }
+  .bottle.gold .body { fill: var(--gold); }
+  .bottle.leaf .body { fill: var(--leaf); }
+  .bottle.leafdark .body { fill: var(--leaf-dark); }
+  .bottle.coral .body { fill: var(--coral); }
+  .bottle.inksoft .body { fill: var(--ink-soft); }
+
+  /* FOOTER */
+  footer { background: var(--leaf-dark); color: var(--surface); padding: 54px 0 30px; }
+  .footer-inner { display:grid; grid-template-columns: 1.3fr 1fr; gap:40px; }
+  footer h3 { font-family: var(--font-display); font-size:1.25rem; margin-bottom:14px; }
+  footer p { color: rgba(232,240,233,0.75); font-size:0.92rem; max-width:44ch; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; font-family: var(--font-mono); font-size:0.82rem; }
+  .footer-links a { text-decoration:none; color: rgba(232,240,233,0.85); }
+  .footer-links a:hover { color: var(--gold); }
+  .fine { margin-top:38px; padding-top:20px; border-top:1px solid rgba(232,240,233,0.18); font-family: var(--font-mono); font-size:0.72rem; color: rgba(232,240,233,0.55); }
+
+  @media (max-width: 700px) {
+    .footer-inner { grid-template-columns:1fr; }
+    .hero { padding: 56px 0 36px; }
+    .wrap { padding: 0 20px; }
+    .award-row, .trust-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 22c0-9 5-15 16-16-1 11-7 16-16 16z"/></svg>
+      COSMODERM
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Collections</a></li>
+      <li><a href="#top">Find My Product</a></li>
+      <li><a href="#trust">Trust &amp; Testing</a></li>
+      <li><a href="#awards">Awards</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow">Formulated in Malaysia, for Malaysia</p>
+      <h1>Skin here doesn't get a <em>dry season.</em></h1>
+      <p class="lede">Cosmoderm is developed around Malaysia's year-round humidity and sun, manufactured locally, and patch-tested before it reaches the shelf. Tell us what's bothering your skin — we'll show you where to start.</p>
+      <p class="concern-label">What's bothering your skin today?</p>
+      <div class="pills" id="pillRow">
+        <button class="pill active" data-concern="all">All Products</button>
+        <button class="pill" data-concern="acne">Acne &amp; Breakouts</button>
+        <button class="pill" data-concern="dry">Dry Skin</button>
+        <button class="pill" data-concern="dull">Dull Skin</button>
+        <button class="pill" data-concern="uneven">Uneven Tone</button>
+        <button class="pill" data-concern="oil-control">Oil Control</button>
+        <button class="pill" data-concern="hydration">Hydration</button>
+        <button class="pill" data-concern="ageing">Ageing</button>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="big-bottle b1 bottle gold" viewBox="0 0 60 84"><rect x="20" y="4" width="20" height="10" rx="3" class="cap"/><rect x="10" y="16" width="40" height="62" rx="14" class="body"/><rect x="10" y="40" width="40" height="16" class="label"/></svg>
+      <svg class="big-bottle b2 bottle leaf" viewBox="0 0 60 84"><rect x="20" y="4" width="20" height="10" rx="3" class="cap"/><rect x="10" y="16" width="40" height="62" rx="14" class="body"/><rect x="10" y="40" width="40" height="16" class="label"/></svg>
+      <svg class="big-bottle b3 bottle coral" viewBox="0 0 60 84"><rect x="20" y="4" width="20" height="10" rx="3" class="cap"/><rect x="10" y="16" width="40" height="62" rx="14" class="body"/><rect x="10" y="40" width="40" height="16" class="label"/></svg>
+    </div>
+  </div>
+</header>
+
+<section class="trust" id="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3l9 4v7c0 6-4 9.5-9 11-5-1.5-9-5-9-11V7l9-4z"/><path d="M10 14l3 3 5-6"/></svg>
+      <div><h4>JAKIM Halal Certified</h4><p>Every formula is certified halal, verified by JAKIM.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 3h6M12 3v7l-6 11a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-11V3"/><path d="M9 17h10"/></svg>
+      <div><h4>Patch-Tested</h4><p>21-day repeat insult testing for leave-on products, 48-hour testing for rinse-off.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3c4 5 8 10 8 14a8 8 0 1 1-16 0c0-4 4-9 8-14z"/></svg>
+      <div><h4>Built for the Climate</h4><p>Formulated with Malaysia's humidity and year-round sun in mind.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 22c0-9 5-15 16-16-1 11-7 16-16 16z"/><path d="M8 20c3-5 6-8 12-11"/></svg>
+      <div><h4>100% Malaysian-Made</h4><p>Manufactured locally in a GMP-certified facility, Malaysian workforce.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="awards" id="awards">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>2025 Watsons Most Wanted</h2>
+      <p>Four Cosmoderm products were recognised at the Watsons Health, Wellness &amp; Beauty Awards 2025.</p>
+    </div>
+    <div class="award-row">
+      <div class="award-card"><p class="ribbon">★ Most Wanted</p><h4>Glow-C Boosting Serum</h4><p>Vitamin C · Dull &amp; uneven tone</p></div>
+      <div class="award-card"><p class="ribbon">★ Most Wanted</p><h4>Niacinamide Boosting Serum</h4><p>Niacinamide + Salicylic Acid · Oil control</p></div>
+      <div class="award-card"><p class="ribbon">★ Most Wanted</p><h4>Tea Tree Oil Facial Cleanser</h4><p>Tea Tree Oil · Acne &amp; breakouts</p></div>
+      <div class="award-card"><p class="ribbon">★ Most Wanted</p><h4>Natural Anti-Bacterial Bodywash Range</h4><p>Body Care</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="products-top">
+      <div class="section-head" style="margin-bottom:0;">
+        <h2>Browse the range</h2>
+        <p>A curated look at Cosmoderm's collections — Niacinamide + Salicylic Acid, Hyaluronic Acid, Tea Tree Oil, Retinol, Vitamin C, Vitamin E, Micellar and Rose Water — part of a wider 116-product catalogue.</p>
+      </div>
+      <p class="count" id="count" aria-live="polite">Showing 15 of 15 products</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <h3>Cosmoderm</h3>
+      <p>A Malaysian skincare and personal care brand, developed for local skin and climate, manufactured locally, and tested before every launch.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#products">Collections</a></li>
+      <li><a href="#trust">Trust &amp; Testing</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#top">Find My Product</a></li>
+    </ul>
+  </div>
+  <div class="wrap fine">Product demo interface — collections, certifications and 2025 award-winning products reflect Cosmoderm's published brand information.</div>
+</footer>
+
+<script>
+  const concernLabel = {
+    acne:'Acne & Breakouts', dry:'Dry Skin', dull:'Dull Skin', uneven:'Uneven Tone',
+    'oil-control':'Oil Control', hydration:'Hydration', ageing:'Ageing'
+  };
+
+  const products = [
+    { name:"Niacinamide Boosting Serum", collection:"Niacinamide + Salicylic Acid", accent:"gold", concerns:["oil-control","acne"], award:true },
+    { name:"Niacinamide + Salicylic Acid Facial Wash", collection:"Niacinamide + Salicylic Acid", accent:"gold", concerns:["acne","oil-control"] },
+    { name:"Tea Tree Oil Facial Cleanser", collection:"Tea Tree Oil", accent:"leaf", concerns:["acne","oil-control"], award:true },
+    { name:"Tea Tree Oil Spot Gel", collection:"Tea Tree Oil", accent:"leaf", concerns:["acne"] },
+    { name:"Hyaluronic Acid Moisture Serum", collection:"Hyaluronic Acid", accent:"inksoft", concerns:["hydration","dry"] },
+    { name:"Hyaluronic Acid Gel Moisturiser", collection:"Hyaluronic Acid", accent:"inksoft", concerns:["hydration","dry"] },
+    { name:"Retinol Renewal Night Cream", collection:"Retinol", accent:"leafdark", concerns:["ageing"] },
+    { name:"Retinol Eye Serum", collection:"Retinol", accent:"leafdark", concerns:["ageing"] },
+    { name:"Glow-C Boosting Serum", collection:"Vitamin C", accent:"coral", concerns:["dull","uneven"], award:true },
+    { name:"Vitamin C Brightening Toner", collection:"Vitamin C", accent:"coral", concerns:["dull","uneven"] },
+    { name:"Vitamin E Nourishing Moisturiser", collection:"Vitamin E", accent:"gold", concerns:["dry","hydration"] },
+    { name:"Vitamin E Repair Night Cream", collection:"Vitamin E", accent:"gold", concerns:["dry"] },
+    { name:"Micellar Cleansing Water", collection:"Micellar", accent:"leafdark", concerns:["dull","hydration"] },
+    { name:"Rose Water Soothing Toner", collection:"Rose Water", accent:"coral", concerns:["dull","hydration"] },
+    { name:"Natural Anti-Bacterial Bodywash Range", collection:"Body Care", accent:"leaf", concerns:[], award:true }
+  ];
+
+  function bottleSVG(accent) {
+    return `<svg viewBox="0 0 60 84" class="bottle ${accent}" aria-hidden="true">
+      <rect x="20" y="4" width="20" height="10" rx="3" class="cap"></rect>
+      <rect x="10" y="16" width="40" height="62" rx="14" class="body"></rect>
+      <rect x="10" y="40" width="40" height="16" class="label"></rect>
+    </svg>`;
+  }
+
+  function render(filter) {
+    const grid = document.getElementById('grid');
+    const items = filter === 'all' ? products : products.filter(p => p.concerns.includes(filter));
+    document.getElementById('count').textContent = `Showing ${items.length} of ${products.length} products`;
+    grid.innerHTML = items.map(p => `
+      <article class="card">
+        ${bottleSVG(p.accent)}
+        ${p.award ? `<span class="badge">★ 2025 Watsons Most Wanted</span>` : ''}
+        <h3>${p.name}</h3>
+        <p class="coll">${p.collection}</p>
+        <div class="tags">${p.concerns.map(c => `<span class="tag">${concernLabel[c]}</span>`).join('') || `<span class="tag">Daily Care</span>`}</div>
+      </article>
+    `).join('');
+  }
+
+  document.querySelectorAll('.pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render(btn.dataset.concern);
+      document.getElementById('products').scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+
+  render('all');
+</script>
+
+</body>
+</html>
